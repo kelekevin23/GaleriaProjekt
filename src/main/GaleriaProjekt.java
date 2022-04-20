@@ -20,10 +20,11 @@ public class GaleriaProjekt {
 
         g.felvesz(new Festmeny("Kevin", "Olajfestmény"));
         g.felvesz(new Festmeny("Roli", "Festmény", "2022-04-20"));
-        g.felvesz(new Festmeny("Oli", "NagyFestmény", "2022-04-21"));//hibás
+        //g.felvesz(new Festmeny("Oli", "NagyFestmény", "2022-04-21"));//hibás
         g.felvesz(new Festmeny("Oli", "kep.txt"));
         g.felvesz(new Festmeny("Oli", "kep.txt", "2022-04-20"));
 
+        kiir(g);
         //kiir(g);
         /* g.rendezCim();
         kiir(g);

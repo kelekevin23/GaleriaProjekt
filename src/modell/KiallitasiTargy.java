@@ -37,7 +37,7 @@ public abstract class KiallitasiTargy implements Serializable {
 
     @Override
     public String toString() {
-        return "\n\tKiallitasiTargy{" + "keszito=" + keszito + ", cim=" + cim + ", datum= " + datum + "}";
+        return "\nKiallitasiTargy{" + "keszito=" + keszito + ", cim=" + cim + ", datum= " + datum + "}";
     }
 
 }

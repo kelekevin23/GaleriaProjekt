@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Galeria implements Serializable, Iterable<KiallitasiTargy>{
+public class Galeria implements Serializable, Iterable<KiallitasiTargy> {
 
     private ArrayList<KiallitasiTargy> targyak;
 
@@ -22,13 +23,9 @@ public class Galeria implements Serializable, Iterable<KiallitasiTargy>{
     }
 
     public void felvesz(Festmeny ujFestmeny) throws GaleriaException {
-         //System.out.println(ujFestmeny.getDatum());
-         //System.out.println((LocalDate.now().toString()));
-        /*if (ujFestmeny.getDatum() > LocalDate.now().toString()) {
-            throw new GaleriaException("Nem lehet későbbi dátum!");
-        } else {
-            targyak.add(ujFestmeny);
-        }*/
+        String datumSzama = ujFestmeny.getDatum().replaceAll("-", "");
+        String maiDatumSzama = LocalDate.now().toString().replaceAll("-", "");
+
         String txt = ujFestmeny.getCim().substring(ujFestmeny.getCim().length() - 4);
         if (txt.equals((".txt"))) {
             Path path = Paths.get(ujFestmeny.getCim());
@@ -39,7 +36,11 @@ public class Galeria implements Serializable, Iterable<KiallitasiTargy>{
                 System.out.println("nem lehet megjeleníteni");
             }
         } else {
-            targyak.add(ujFestmeny);
+            if (Integer.parseInt(datumSzama) > Integer.parseInt(maiDatumSzama)) {
+                throw new GaleriaException("Nem lehet későbbi dátum!");
+            } else {
+                targyak.add(ujFestmeny);
+            }
         }
 
     }
@@ -64,11 +65,6 @@ public class Galeria implements Serializable, Iterable<KiallitasiTargy>{
     @Override
     public Iterator<KiallitasiTargy> iterator() {
         return getModosithatatlan().iterator();
-    }
-
-    @Override
-    public String toString() {
-        return "Galeria{\n" + "targyak=" + targyak + '}';
     }
 
 }
