@@ -1,22 +1,15 @@
 package modell;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
-public abstract class KiallitasiTargy {
 
-    private static CimComparator rendezCim() {
-        return new CimComparator();
-    }
+public abstract class KiallitasiTargy implements Serializable {
 
-    private static KeszitoComparator rendezKeszito() {
-        return new KeszitoComparator();
-    }
-
-    private Date datum;
-    private String keszito, cim;
+   // private Date datum;
+    private String keszito, cim, datum;
     private SimpleDateFormat formatter;
 
     public KiallitasiTargy(String keszito, String cim) throws ParseException {
@@ -26,8 +19,8 @@ public abstract class KiallitasiTargy {
     public KiallitasiTargy(String keszito, String cim, String datum) throws ParseException {
         this.keszito = keszito;
         this.cim = cim;
-        this.formatter = new SimpleDateFormat("yyyy-MM-dd");
-        this.datum = formatter.parse(datum);
+        formatter = new SimpleDateFormat("MM-dd-yyyy");
+        this.datum = datum;
     }
 
     public String getKeszito() {
@@ -38,13 +31,13 @@ public abstract class KiallitasiTargy {
         return cim;
     }
 
-    public Date getDatum() {
+    public String getDatum() {
         return datum;
     }
 
     @Override
     public String toString() {
-        return "KiallitasiTargy{" + "keszito=" + keszito + ", cim=" + cim + ", datum= " + datum + "}";
+        return "\n\tKiallitasiTargy{" + "keszito=" + keszito + ", cim=" + cim + ", datum= " + datum + "}";
     }
 
 }
