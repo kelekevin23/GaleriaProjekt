@@ -30,13 +30,13 @@ public class GaleriaProjekt {
         g.rendezKeszito();
         kiir(g);*/
         
-        mentes(g);
+        /*mentes(g);
         System.out.println("Mentés...");
         g = null;
         System.out.println(g);
         System.out.println("Visszaolvasás...");
         g = betoltes();
-        kiir(g);
+        kiir(g);*/
                
     }
 
@@ -62,11 +62,7 @@ public class GaleriaProjekt {
     public static Galeria betoltes() {
         Galeria g = null;
         try {
-            //FileInputStream fajlBe = new FileInputStream("harcos.ser");
-            //ObjectInputStream objBe = new ObjectInputStream(new FileInputStream("harcos.ser"));
-            //harcos = (Harcos) objBe.readObject();
             g = (Galeria) new ObjectInputStream(new FileInputStream("galeria.ser")).readObject();
-            //objBe.close();
         } catch (FileNotFoundException ex) {
             System.err.println(ex);
         } catch (IOException | ClassNotFoundException ex) {
