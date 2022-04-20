@@ -67,4 +67,9 @@ public class Galeria implements Serializable, Iterable<KiallitasiTargy> {
         return getModosithatatlan().iterator();
     }
 
+    @Override
+    public String toString() {
+        return "Galeria{\n" + "targyak=" + targyak + '}';
+    }
+
 }

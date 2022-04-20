@@ -38,6 +38,7 @@ public class GaleriaProjekt {
         System.out.println("Visszaolvasás...");
         g = betoltes();
         kiir(g);*/
+        //System.out.println(g);
                
     }
 
